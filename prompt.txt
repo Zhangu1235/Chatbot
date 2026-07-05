@@ -1,0 +1,30 @@
+Build a simple chatbot web app using the Google Gemini API. Requirements:
+Stack: Python + Flask backend, plain HTML/CSS/JS frontend (no framework needed).
+Core features:
+
+A single-page chat interface with an input box, send button, and scrolling message history
+A Flask route (/chat) that accepts a user message via POST and returns the Gemini API's response as JSON
+Use the google-generativeai Python SDK to call the Gemini API
+Maintain basic conversation context (chat history) for the session
+
+Security requirements (important):
+
+Store the Gemini API key in a .env file, never hardcoded in source
+Load it using python-dotenv
+Add .env to .gitignore from the start
+Include a .env.example file with a placeholder (e.g., GEMINI_API_KEY=your_key_here) so the repo is safe to share publicly
+
+Deliverables:
+
+app.py — Flask app with the chat route and Gemini API call logic
+templates/index.html — chat UI
+static/style.css and static/script.js — styling and fetch logic for sending/receiving messages
+requirements.txt — pinned dependencies (flask, google-generativeai, python-dotenv)
+.env.example and .gitignore
+README.md with:
+
+Local setup steps (clone, venv, install requirements, add .env, run python app.py)
+Deployment steps for a free host (e.g., Render or Railway), including how to set the GEMINI_API_KEY as an environment variable in the host's dashboard instead of committing it
+
+
+Make the code well-commented and beginner-friendly, since this may be used as a teaching example.

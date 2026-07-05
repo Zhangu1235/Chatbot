@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kezha AI Chatbot</title>
+    
+    <!-- Google Fonts - Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-background">
+        <!-- Floating ambient glowing shapes -->
+        <div class="glow-sphere glow-1"></div>
+        <div class="glow-sphere glow-2"></div>
+        
+        <!-- Main Chat Wrapper -->
+        <main class="chat-container">
+            <!-- Header Section -->
+            <header class="chat-header" id="chat-header">
+                <div class="header-info">
+                    <div class="avatar-container">
+                        <i class="fa-solid fa-wand-magic-sparkles bot-icon"></i>
+                        <span class="status-indicator online"></span>
+                    </div>
+                    <div class="header-text">
+                        <h1>Kezha AI Chatbot</h1>
+                        <p class="status-text">Active Session</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="reset-btn" class="icon-btn" title="Clear chat history" aria-label="Reset conversation">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Conversation Window -->
+            <section class="chat-messages scroller" id="chat-messages" aria-live="polite">
+                <!-- Welcome/Intro Message -->
+                <div class="message model welcome-message">
+                    <div class="message-content">
+                        <p>Hi! I'm Kezha, your AI assistant. How can I help you today? Feel free to ask me anything!</p>
+                        <div class="quick-prompts">
+                            <button class="prompt-chip" onclick="useQuickPrompt('Explain quantum computing simply')">Explain quantum computing</button>
+                            <button class="prompt-chip" onclick="useQuickPrompt('Write a short story about a time traveler')">Write a short story</button>
+                            <button class="prompt-chip" onclick="useQuickPrompt('Give me a recipe for chocolate cookies')">Cookie recipe</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading/Typing Indicator -->
+            <div class="typing-indicator-container" id="typing-indicator" style="display: none;">
+                <div class="typing-bubble">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <span class="typing-text">Kezha is thinking...</span>
+            </div>
+
+            <!-- Input Box Section -->
+            <footer class="chat-input-area">
+                <form id="chat-form" class="chat-form">
+                    <textarea 
+                        id="user-input" 
+                        placeholder="Type a message..." 
+                        rows="1" 
+                        required 
+                        autocomplete="off"
+                        aria-label="User message input"
+                    ></textarea>
+                    <button type="submit" id="send-btn" class="send-btn" aria-label="Send message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Custom Frontend Logic -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
