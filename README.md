@@ -120,13 +120,13 @@ You can easily host this chatbot online for free. Below are the steps to deploy 
    - **Branch**: `main`
    - **Runtime**: `Python 3`
    - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn app:app` (Note: You may need to add `gunicorn` to your `requirements.txt` for production deployment, or Render will use Flask's dev server which is not recommended for production. To be safe, add `gunicorn` to dependencies or run `python app.py`). On Render, using `python app.py` or installing `gunicorn` and using `gunicorn app:app` works great.
+   - **Start Command**: `gunicorn app:app`
 5. **Set Environment Variables**:
    - Click on the **Advanced** button or go to the **Environment** tab.
    - Add the following environment variables:
      - `GEMINI_API_KEY` = *[Your actual Gemini API key]*
      - `FLASK_SECRET_KEY` = *[A secure random string]*
-     - `PYTHON_VERSION` = `3.10.0` (or your preferred Python version)
+     - `FLASK_ENV` = `production`
 6. **Deploy**: Click **Create Web Service**. Render will build and deploy your app. Once finished, they will provide you with a public HTTPS URL.
 
 ### Deploying on Railway (railway.app)
